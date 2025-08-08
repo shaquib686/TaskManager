@@ -1,0 +1,531 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+/* Left and Right Panel Wrapper */
+.page-content {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 85%;
+}
+
+/* Main Content Flex Layout */
+.main-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Left 80% Panel */
+.main-panel {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Add Task Panel */
+.add-task-panel {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    padding: 20px;
+    border-radius: 12px;
+    gap: 10px;
+}
+
+/* Make form a flexbox container */
+.add-task-form {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Task Name - takes 2/3 of space */
+.task-name {
+    flex-grow: 4;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+
+/* Other inputs - each takes 1/9 (3 combined = 1/3) */
+.task-priority,
+.add-task-btn {
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+
+.task-date {
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+
+/* Inputs */
+.task-name,
+.task-priority,
+.task-date,
+.add-task-btn {
+    padding: 12px;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    border: 1px solid #444;
+    min-width: 0;
+}
+
+.task-name:focus,
+.task-priority:focus,
+.task-date:focus {
+    outline: none;
+    border-color: #00bcd4;
+    box-shadow: 0 0 5px #00bcd4;
+}
+
+/* Add Task Button */
+.add-task-btn {
+    background-color: #00bcd4;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.add-task-btn:hover {
+    background-color: #0097a7;
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+/* Task Table */
+.task-list {
+    overflow-x: auto;
+}
+
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(to bottom right, #1a1a1a, #292929);
+    color: #f0f0f0;
+}
+
+.task-table th {
+    background-color: #333;
+    color: #00bcd4;
+    padding: 10px;
+}
+
+.task-table td {
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #444;
+}
+
+.task-table a {
+    color: #00bcd4;
+    text-decoration: underline;
+}
+
+/* Buttons in table */
+.action-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin: 0 3px;
+    transition: transform 0.2s;
+}
+.action-btn:hover {
+    transform: scale(1.2);
+}
+
+.edit-icon {
+    color: #ffa500;
+}
+.delete-icon {
+    color: #ff4d4d;
+}
+
+.priority-high td {
+    color: #ff6b6b;
+}
+
+.priority-medium td {
+    color: #f9d423;
+}
+
+.priority-low td {
+    color: #1f8255;
+}
+
+.status-square {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.priority-high .status-square {
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+}
+
+.priority-medium .status-square {
+    border-color: #f9d423;
+    color: #f9d423;
+}
+
+.priority-low .status-square {
+    border-color: #1f8255;
+    color: #1f8255;
+}
+
+.task-name-cell {
+    text-align: left;
+    max-width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+}
+
+/* Panel container */
+.task-filter-panel {
+    padding: 1.2rem;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    border-radius: 15px;
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Form rows */
+.task-filter-form .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.search-wrapper {
+    position: relative;
+    flex: 1 1 100%;
+    max-width: 100%;
+}
+
+.search-task-input {
+    width: 100%;
+    padding: 0.6rem 2.8rem 0.6rem 1rem;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-color: #2b2b3c;
+    color: #fff;
+    font-size: 1rem;
+    outline: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+.search-task-input:focus,
+.search-icon-btn:focus,
+.filter-status:focus,
+.filter-priority:focus,
+.filter-date-from:focus,
+.filter-date-to:focus {
+    outline: none;
+    border-color: #00bcd4;
+    box-shadow: 0 0 5px #00bcd4;
+}
+
+.search-icon-btn {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* ✅ FILTER CRITERIA INLINE - GOAL 1 */
+.filter-criteria-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-left {
+  flex: 1; /* 40% */
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.filter-right {
+  flex: 3; /* 60% */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Make dropdowns and date inputs consistent */
+.filter-left .form-group-inline,
+.filter-right .floating-input {
+  flex: 1;
+}
+
+
+/* Fix label alignment */
+.form-group-inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-group-inline label {
+  white-space: nowrap;
+  font-size: 14px;
+  color: #ccc;
+  margin: 0;
+}
+
+/* Status and Priority Dropdowns */
+.filter-status,
+.filter-priority {
+    width: 100%;
+    padding: 0.6rem 2.8rem 0.6rem 1rem;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-color: #2b2b3c;
+    color: #fff;
+    font-size: 1rem;
+    outline: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* Date range floating inputs */
+.floating-input {
+  position: relative;
+}
+
+
+.floating-input input {
+    width: 100%;
+    padding: 0.6rem 2.8rem 0.6rem 1rem;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-color: #2b2b3c;
+    color: #fff;
+    font-size: 1rem;
+    outline: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+.floating-input label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 14px;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  color: #999;
+}
+
+.floating-input input:focus + label,
+.floating-input input:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 8px;
+  font-size: 11px;
+  color: #f3f9f8;
+}
+
+/* Add spacing and "to" in date range */
+.date-range-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+}
+
+/* "to" text */
+.to-text {
+  font-size: 14px;
+  color: #ccc;
+  white-space: nowrap;
+}
+
+.flatpickr-calendar.range-open {
+    z-index: 1000;
+}
+
+
+/* Buttons row */
+.button-row {
+    gap: 2rem;
+    margin-top: 20px;
+}
+
+.btn-apply-filter,
+.btn-reset-filter {
+    padding: 0.6rem 1.8rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #fff;
+}
+
+.btn-apply-filter {
+    background-color: #4caf50;
+}
+
+.btn-apply-filter:hover {
+    background-color: #45a049;
+}
+
+.btn-reset-filter {
+    background-color: #f44336;
+}
+
+.btn-reset-filter:hover {
+    background-color: #e53935;
+}
+
+/* Fix bottom margin */
+.task-filter-form .form-row:last-child {
+    margin-bottom: 0;
+}
+
+.pagging-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rows-dropdown,
+.action-dropdown {
+  background: #23232a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 1rem;
+  min-width: 90px;
+  height: 34px;
+}
+
+.paging-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.paging-btn {
+  background: #23232a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.paging-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.current-page {
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+.slash {
+  color: #888;
+  margin: 0 2px;
+}
+.total-pages {
+  color: #aaa;
+  font-size: 1rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .filter-criteria-row {
+        flex-direction: column;
+    }
+
+    .button-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Monthly Report (Right 20%) */
+.side-panel {
+    flex: 0 0 20%;
+    max-width: 20%;
+    min-width: 220px; /* or whatever minimum you want */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.report-card {
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+
+/* Responsive Layout for Add Task Panel */
+@media screen and (max-width: 992px) {
+    .main-content-wrapper {
+        flex-direction: column;
+    }
+
+    .main-panel, .side-panel {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+    .side-panel {
+        align-items: stretch;
+    }
+
+    .add-task-panel {
+        flex-direction: column;
+    }
+
+    .add-task-form {
+        flex-direction: column;
+    }
+
+    .task-name,
+    .task-priority,
+    .task-date,
+    .add-task-btn {
+        width: 100%;
+        flex: none;
+    }
+}

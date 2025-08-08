@@ -1,0 +1,12 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\shaqu\\Downloads\\mysql-connector-j-9.3.0\\mysql-connector-j-9.3.0\\mysql-connector-j-9.3.0.jar"
+    ],
+    "tomcat.workspace": "target",
+    "tomcat.runInTerminal": true,
+    "java.debug.settings.hotCodeReplace": "auto",
+    "server.http.port": "8080"
+
+}

@@ -1,0 +1,247 @@
+/* Card Container */
+.report-card {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 15px 15px 15px 15px;
+  border-radius: 14px;
+  background: #18181d;
+  border: 1px solid #23232a;
+  box-shadow: 0 2px 12px #000a;
+}
+
+/* Header Layout */
+.report-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Toggle Row */
+.report-card-toggle-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Toggle Group (Pill Box) */
+.toggle-group {
+  display: flex;
+  width: 100%;
+  border: 1px solid #23232a;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #18181d;
+  box-shadow: 0 1px 4px #0002;
+}
+
+/* Toggle Button */
+.report-tab {
+  flex: 1 1 0;
+  min-width: 0;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-weight: 500;
+  padding: 10px 0;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  border-radius: 0;
+  margin: 0;
+  outline: none;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.01em;
+}
+
+.report-tab:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.report-tab:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.report-tab:not(:last-child) {
+  border-right: 1px solid #23232a;
+}
+
+.report-tab.active {
+  background: #23232a;
+  color: #fff;
+  z-index: 2;
+  box-shadow: 0 2px 8px #0003;
+}
+
+.report-tab:hover:not(.active) {
+  background: #23232a44;
+  color: #fff;
+}
+
+/* Dropdown Row */
+.report-card-dropdown-row {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
+}
+
+/* Dropdown Group (Month/Year) */
+.dropdown-group {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Dropdowns */
+.report-type-dropdown,
+.report-value-dropdown {
+  background: #23232a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 4px 14px;
+  font-size: 0.95rem;
+  outline: none;
+  cursor: pointer;
+  min-width: 90px;
+  max-width: 100%;
+  height: 32px;
+  margin: 0;
+  transition: border 0.2s;
+  box-sizing: border-box;
+}
+
+.report-type-dropdown:focus,
+.report-value-dropdown:focus {
+  border: 1px solid #00d8a7;
+}
+
+.custom-dropdown {
+  position: relative;
+  width: 140px;
+}
+
+.custom-dropdown-btn {
+  width: 100%;
+  background: #23232a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.custom-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  min-width: 180px;
+  background: #23232a;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px #000a;
+  z-index: 10;
+  padding: 8px 0;
+  flex-direction: row;
+  gap: 0;
+  height: 220px;
+  max-height: 220px;
+}
+
+.custom-dropdown.open .custom-dropdown-menu {
+  display: flex;
+}
+
+.custom-dropdown-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 70px;
+  max-width: 90px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.custom-dropdown-item {
+  padding: 6px 18px;
+  color: #fff;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-radius: 6px;
+  margin: 2px 0;
+  transition: background 0.15s;
+}
+
+.custom-dropdown-item.selected,
+.custom-dropdown-item:hover {
+  background: #38384a;
+  color: #fff;
+}
+
+/* Chart Container */
+.report-card-chart {
+  width: 100%;
+  min-height: 180px;
+  margin: 16px 0 0 0;
+  background: #23232a;
+  border-radius: 10px;
+  padding: 10px 8px 0 8px;
+  box-sizing: border-box;
+}
+
+.report-card-chart canvas {
+  width: 100% !important;
+  height: 160px !important;
+  display: block;
+}
+
+
+/* Summary Row */
+.report-card-summary {
+  display: flex;
+  gap: 18px;
+  font-size: 0.90rem;
+  margin-top: 8px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.report-card-summary .easy {
+  color: #00d8a7;
+}
+.report-card-summary .medium {
+  color: #ffc300;
+}
+.report-card-summary .hard {
+  color: #ff4d4f;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .report-card-header {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .report-card-dropdown-row,
+  .dropdown-group {
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+  }
+}

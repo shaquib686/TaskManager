@@ -1,0 +1,55 @@
+.navbar-container {
+    width: 82%;
+    margin: 0 auto; /* Top margin + center horizontally */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    padding: 12px 24px;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    color: white;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 45px;
+    margin-right: 10px;
+}
+
+.app-title {
+    font-size: 24px;
+    color: orange;
+}
+
+.user-greeting {
+    font-size: 22px;
+    color: white;
+}
+
+.logout-form {
+    margin: 0;
+}
+
+.logout-button {
+    background-color: #408bda;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.logout-button:hover {
+    background-color: #2a6bb5;
+}
